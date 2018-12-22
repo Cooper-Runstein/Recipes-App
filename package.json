@@ -43,10 +43,10 @@
     "react-app-polyfill": "^0.1.1",
     "react-dev-utils": "^6.0.1",
     "react-dom": "^16.7.0",
-    "resolve": "1.8.1",
-    "sass-loader": "7.1.0",
     "react-scripts-ts": "4.0.8",
     "react-test-renderer": "^16.7.0",
+    "resolve": "1.8.1",
+    "sass-loader": "7.1.0",
     "scss-loader": "^0.0.1",
     "source-map-loader": "^0.2.1",
     "storybook": "^1.0.0",
@@ -102,6 +102,7 @@
     "typings-for-css-modules-loader": "^1.7.0"
   },
   "jest": {
+    "setupTestFrameworkScriptFile": "<rootDir>/src/setupTests.ts",
     "collectCoverageFrom": [
       "src/**/*.{js,jsx,ts,tsx}",
       "!**/*.d.ts"

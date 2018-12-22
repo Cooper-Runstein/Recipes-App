@@ -7,7 +7,7 @@ class App extends React.Component {
     return (
       <>
         <h1>Food App Thingy</h1>
-        <SearchBar color="red" />
+        <SearchBar />
       </>
     );
   }
