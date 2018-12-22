@@ -3,16 +3,21 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "babel-loader": "^8.0.4",
     "node-sass": "^4.11.0",
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
-    "react-scripts-ts": "4.0.8"
+    "react-scripts-ts": "4.0.8",
+    "scss-loader": "^0.0.1",
+    "storybook": "^1.0.0"
   },
   "scripts": {
     "start": "react-scripts-ts start",
     "build": "react-scripts-ts build",
     "test": "react-scripts-ts test",
-    "eject": "react-scripts-ts eject"
+    "eject": "react-scripts-ts eject",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -24,11 +29,20 @@
     "not op_mini all"
   ],
   "devDependencies": {
+    "@storybook/addon-actions": "^4.1.3",
+    "@storybook/addon-info": "^4.1.3",
+    "@storybook/addon-links": "^4.1.3",
+    "@storybook/react": "^4.1.3",
     "@types/jest": "^23.3.10",
     "@types/node": "^10.12.18",
     "@types/react": "^16.7.18",
     "@types/react-dom": "^16.0.11",
+    "@types/storybook__react": "^4.0.0",
     "@types/webpack": "^4.4.22",
+    "awesome-typescript-loader": "^5.2.1",
+    "jest": "^23.6.0",
+    "react-docgen-typescript-webpack-plugin": "^1.1.0",
+    "ts-jest": "^23.10.5",
     "typescript": "^3.2.2",
     "typings-for-css-modules-loader": "^1.7.0"
   }
