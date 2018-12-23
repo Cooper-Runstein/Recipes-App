@@ -2,7 +2,7 @@
 
 ### Introduction
 
-This is the repo for the FoodApp web app. The bulk of the work is in src. To run please install [yarn](https://yarnpkg.com/en/) and run `yarn start`.
+This is the repo for the FoodApp web app. The bulk of the work is in src. To run, run `npm start`.
 
 ### Development
 
@@ -14,16 +14,16 @@ This app is styled with SASS in the form of modular `.module.scss` files. These 
 
 ### Testing
 
-To run all possible tests, run `yarn test:all`
+To run all possible tests, run `npm test:all`
 
 #### Unit Tests
 
-Unit Testing is done with Jest and Enzyme. Enzyme's adapter file is located at `src/setupTests.ts`. To run all unit tests run `yarn test`.
+Unit Testing is done with Jest and Enzyme. Enzyme's adapter file is located at `src/setupTests.ts`. To run all unit tests run `npm test`.
 
 ### Integration Tests
 
-Integration tests are done with TestCafe. To run, use either `yarn testI:chrome` or `yarn testI:firefox`. To run all integration tests, run `yarn testI:all`.
+Integration tests are done with TestCafe. To run, use either `npm testI:chrome` or `npm testI:firefox`. To run all integration tests, run `npm testI:all`.
 
 ###StoryBook
 
-This app is setup for (StoryBook)["https://storybook.js.org/basics/guide-react/"] development. To run, use `yarn storybook` and navigate to `localhost:6006`.
+This app is setup for (StoryBook)["https://storybook.js.org/basics/guide-react/"] development. To run, use `npm run storybook` and navigate to `localhost:6006`.

@@ -32,7 +32,6 @@
     "html-webpack-plugin": "4.0.0-alpha.2",
     "husky": "^1.2.1",
     "identity-obj-proxy": "3.0.0",
-    "jest": "23.6.0",
     "mini-css-extract-plugin": "0.4.3",
     "node-sass": "^4.11.0",
     "optimize-css-assets-webpack-plugin": "5.0.1",
@@ -71,11 +70,12 @@
     "build": "node scripts/build.js",
     "start": "node scripts/start.js",
     "storybook": "start-storybook -p 6006",
+    "test:all": "npm test:noWatch & npm testI:all",
+    "test:noWatch": "CI=true npm test",
     "test": "node scripts/test.js",
-    "testI:firefox": "testcafe firefox IntegrationTests/",
+    "testI:all": "npm testI:chrome & npm testI:firefox",
     "testI:chrome": "testcafe chrome IntegrationTests/",
-    "testI:all": "yarn testI:chrome & yarn testI:firefox",
-    "test:all": "yarn test & yarn testI:all"
+    "testI:firefox": "testcafe firefox IntegrationTests/"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -92,6 +92,7 @@
     "@storybook/addon-links": "^4.1.3",
     "@storybook/react": "^4.1.3",
     "@types/enzyme": "^3.1.15",
+    "@types/enzyme-adapter-react-16": "^1.0.3",
     "@types/jest": "^23.3.10",
     "@types/node": "^10.12.18",
     "@types/react": "^16.7.18",
@@ -137,12 +138,6 @@
     "globals": {
       "ts-jest": {
         "tsConfigFile": "/Users/cooperrunstein/dev/foodApp/ui-app/tsconfig.test.json"
-      }
-    },
-    "husky": {
-      "hooks": {
-        "pre-commit": "yarn test",
-        "pre-push": "yarn test"
       }
     },
     "moduleFileExtensions": [
