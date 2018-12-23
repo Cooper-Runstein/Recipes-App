@@ -6,6 +6,10 @@ import { linkTo } from "@storybook/addon-links";
 
 import SearchBar from "./SearchBar.tsx";
 
-storiesOf("SearchBar", module).add("hello world", () => {
-  return <SearchBar />;
-});
+storiesOf("SearchBar", module)
+  .add("Default", () => {
+    return <SearchBar />;
+  })
+  .add("Red", () => {
+    return <SearchBar color={"red"} />;
+  });
