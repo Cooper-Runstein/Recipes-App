@@ -4,6 +4,7 @@ import Header from "./components/Header";
 import SearchBar from "./components/SearchBar";
 
 import Recipe, { RecipeType } from "service/models/recipe";
+import RecipesResults from "./components/RecipesResults";
 
 import getRecipes from "service/api/getRecipes";
 
@@ -56,6 +57,7 @@ class App extends React.Component {
           entryFunc={this.entryFunc}
           textEntryValue={this.state.entry}
         />
+        <RecipesResults recipes={this.state.recipes} />
       </>
     );
   }

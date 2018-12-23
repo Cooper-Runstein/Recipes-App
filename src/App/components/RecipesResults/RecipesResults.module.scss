@@ -1,0 +1,19 @@
+.container {
+  min-height: 500px;
+  min-width: 500px;
+  background: grey;
+  padding-left: 10vw;
+  padding-right: 10vw;
+
+  ul {
+    list-style: none;
+  }
+}
+
+.recipe {
+  display: inline-flex;
+  flex-direction: column;
+  background: red;
+  width: 15vw;
+  margin-right: 10px;
+}
