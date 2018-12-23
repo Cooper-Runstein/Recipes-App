@@ -6,7 +6,23 @@ This is the repo for the FoodApp web app. The bulk of the work is in src. To run
 
 ### Development
 
+#### Directory structure
+
 To add to this repo, all react components should go in the `components` file. Each component should have its own directory, and be exported from an `index.ts` file. The directory must include a compoonet name prefixed `.spec.ts` file for unit test, and all styling should be done in a `.module.scss` file.
+
+#### Coding style rules
+
+TSlint and prettier will serve to enforce as much styling and practice rules as possible, but this section serves to layout some of the best practices.
+
+- Alphabetization: All css rules, all component props, all config options, and all imports should be in alphabetical order.
+- Arrow functions: In every case, an arrow function is prefered to a standard function.
+- SCSS: Don't use `important`. Don't use more that one layer of nesting. Don't write global rules.
+- React classes: Every component that can be a function component, should be a functional component.
+- NPM modules: Can you write the functionality in 15 minutes or less? If so, don't import a module. If you do, check the github page and npm page for downloads/stars. Don't use old or unpopular modules.
+
+#### Testing rules
+
+Every component needs to have unit tests associated with it. Every helper function should also be thoroughly tested. Every componet that serves as a UI piece should have a storybook entry, and an integration test. More about these is below in the Testing section.
 
 ### SCSS Modules
 

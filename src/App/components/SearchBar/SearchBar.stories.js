@@ -8,8 +8,10 @@ import SearchBar from "./SearchBar.tsx";
 
 storiesOf("SearchBar", module)
   .add("Default", () => {
-    return <SearchBar />;
+    return <SearchBar submitFunc={() => null} entryFunc={() => null} />;
   })
   .add("Red", () => {
-    return <SearchBar color={"red"} />;
+    return (
+      <SearchBar color={"red"} submitFunc={() => null} entryFunc={() => null} />
+    );
   });
