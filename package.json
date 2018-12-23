@@ -106,6 +106,12 @@
     "typescript": "^3.2.2",
     "typings-for-css-modules-loader": "^1.7.0"
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm test:noWatch",
+      "pre-push": "npm test:noWatch"
+    }
+  },
   "jest": {
     "setupTestFrameworkScriptFile": "<rootDir>/src/setupTests.ts",
     "collectCoverageFrom": [
