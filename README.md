@@ -24,6 +24,10 @@ Unit Testing is done with Jest and Enzyme. Enzyme's adapter file is located at `
 
 Integration tests are done with TestCafe. To run, use either `npm testI:chrome` or `npm testI:firefox`. To run all integration tests, run `npm testI:all`.
 
-###StoryBook
+### StoryBook
 
 This app is setup for (StoryBook)["https://storybook.js.org/basics/guide-react/"] development. To run, use `npm run storybook` and navigate to `localhost:6006`.
+
+### Husky
+
+Before you can commit or push, all tests must pass. This is enforced with (Husky)[https://github.com/typicode/husky] pre-commit and pre-push hooks. These are set up in package.json. Do not disable these just to get a commit in.

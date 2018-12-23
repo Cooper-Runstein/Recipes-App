@@ -70,10 +70,10 @@
     "build": "node scripts/build.js",
     "start": "node scripts/start.js",
     "storybook": "start-storybook -p 6006",
-    "test:all": "npm test:noWatch & npm testI:all",
+    "test:all": "npm run test:noWatch & npm run testI:all",
     "test:noWatch": "CI=true npm test",
     "test": "node scripts/test.js",
-    "testI:all": "npm testI:chrome & npm testI:firefox",
+    "testI:all": "npm run testI:chrome & npm run testI:firefox",
     "testI:chrome": "testcafe chrome IntegrationTests/",
     "testI:firefox": "testcafe firefox IntegrationTests/"
   },
@@ -108,8 +108,8 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm test:noWatch",
-      "pre-push": "npm test:noWatch"
+      "pre-commit": "npm run test:noWatch",
+      "pre-push": "npm run test:noWatch"
     }
   },
   "jest": {
