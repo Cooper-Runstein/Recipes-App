@@ -1,66 +1,37 @@
+// Imports
 import * as React from "react";
+import { connect } from "react-redux";
+// import { bindActionCreators } from "redux";
 
+// Components
 import Header from "./components/Header";
+// import RecipesResults from "./components/RecipesResults";
 import SearchBar from "./components/SearchBar";
 
-import Recipe, { RecipeType } from "service/models/recipe";
-import RecipesResults from "./components/RecipesResults";
+// Models
+// import Recipe, { RecipeType } from "service/models/recipe";
 
-import getRecipes from "service/api/getRecipes";
+const App = (props: any) => {
+  return (
+    <>
+      <Header />
+      <h1>Food App Thingy</h1>
+      {
+        // <button onClick={() => props.dispatch(entryFunc("entry"))}>
+        // Test redux action
+        // </button>
+      }
+      <SearchBar color={"blue"} />
 
-type StateType = {
-  recipes: RecipeType[];
-  entry: string;
-  ingredients: string[];
+      {
+        // <RecipesResults recipes={this.state.recipes} />
+      }
+    </>
+  );
 };
 
-class App extends React.Component {
-  public state: StateType = {
-    entry: "",
-    ingredients: [],
-    recipes: []
-  };
+const mapStateToProps = (state: any) => ({
+  entry: state.entry
+});
 
-  public searchFunc = (ingredients: string[]) => {
-    getRecipes(ingredients).then(recipes => {
-      recipes = recipes.map((r: any) => {
-        return new Recipe(r.recipeId, r.name, r.ingredients, r.website, r.link);
-      });
-      this.setState({ ...this.state, recipes });
-    });
-  };
-
-  public entryFunc = (value: string) => {
-    this.setState({ ...this.state, entry: value });
-  };
-
-  public submitFunc = () => {
-    if (this.state.entry !== "") {
-      this.setState(
-        {
-          ...this.state,
-          entry: "",
-          ingredients: [...this.state.ingredients, this.state.entry]
-        },
-        () => this.searchFunc(this.state.ingredients)
-      );
-    }
-  };
-
-  public render() {
-    return (
-      <>
-        <Header />
-        <h1>Food App Thingy</h1>
-        <SearchBar
-          submitFunc={this.submitFunc}
-          entryFunc={this.entryFunc}
-          textEntryValue={this.state.entry}
-        />
-        <RecipesResults recipes={this.state.recipes} />
-      </>
-    );
-  }
-}
-
-export default App;
+export default connect(mapStateToProps)(App);

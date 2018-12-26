@@ -5,6 +5,7 @@
   "dependencies": {
     "@babel/core": "7.1.0",
     "@svgr/webpack": "2.4.1",
+    "@types/react-redux": "^6.0.11",
     "babel-core": "7.0.0-bridge.0",
     "babel-eslint": "9.0.0",
     "babel-jest": "23.6.0",
@@ -43,8 +44,11 @@
     "react-app-polyfill": "^0.1.1",
     "react-dev-utils": "^6.0.1",
     "react-dom": "^16.7.0",
+    "react-redux": "^6.0.0",
     "react-scripts-ts": "4.0.8",
     "react-test-renderer": "^16.7.0",
+    "redux": "^4.0.1",
+    "redux-thunk": "^2.3.0",
     "resolve": "1.8.1",
     "sass-loader": "7.1.0",
     "scss-loader": "^0.0.1",
@@ -102,6 +106,7 @@
     "awesome-typescript-loader": "^5.2.1",
     "jest": "^23.6.0",
     "react-docgen-typescript-webpack-plugin": "^1.1.0",
+    "redux-devtools-extension": "^2.13.7",
     "ts-jest": "^23.10.5",
     "typescript": "^3.2.2",
     "typings-for-css-modules-loader": "^1.7.0"
