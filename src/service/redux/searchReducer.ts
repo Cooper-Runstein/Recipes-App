@@ -1,7 +1,13 @@
 import { ActionTypes } from "./searchActions";
 
 export default (
-  state = { ingredients: [], isUpdating: false, entry: "", recipes: [] },
+  state = {
+    entry: "",
+    ingredients: [],
+    isUpdating: false,
+    recipes: [],
+    status: true
+  },
   action: any
 ) => {
   switch (action.type) {
@@ -21,7 +27,8 @@ export default (
       return {
         ...state,
         isUpdating: false,
-        recipes: action.value
+        recipes: action.value,
+        status: action.status
       };
     default:
       return state;

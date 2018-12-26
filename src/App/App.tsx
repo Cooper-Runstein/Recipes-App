@@ -1,7 +1,6 @@
 // Imports
 import * as React from "react";
 import { connect } from "react-redux";
-// import { bindActionCreators } from "redux";
 
 import { searchFunc } from "../service/redux/searchActions";
 
@@ -19,7 +18,11 @@ const App = (props: any) => {
     <>
       <Header />
       <SearchBar color={"blue"} />
-      <RecipesResults recipes={props.recipes} isUpdating={props.isUpdating} />
+      <RecipesResults
+        recipes={props.recipes}
+        isUpdating={props.isUpdating}
+        status={props.status}
+      />
     </>
   );
 };
@@ -28,7 +31,8 @@ const mapStateToProps = (state: any) => {
   return {
     ingredients: state.searchReducer.ingredients,
     isUpdating: state.searchReducer.isUpdating,
-    recipes: state.searchReducer.recipes
+    recipes: state.searchReducer.recipes,
+    status: state.searchReducer.status
   };
 };
 

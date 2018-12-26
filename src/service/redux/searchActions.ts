@@ -19,10 +19,27 @@ export const submitFunc = () => {
 
 export const searchFunc = (ingredients: string[]) => {
   return (dispatch: any) =>
-    getRecipes(ingredients).then(recipes => {
-      recipes = recipes.map((r: any) => {
-        return new Recipe(r.recipeId, r.name, r.ingredients, r.website, r.link);
-      });
-      dispatch({ type: ActionTypes.SEARCH_WITH_INGREDIENTS, value: recipes });
-    });
+    getRecipes(ingredients)
+      .then(recipes => {
+        recipes = recipes.map((r: any) => {
+          return new Recipe(
+            r.recipeId,
+            r.name,
+            r.ingredients,
+            r.website,
+            r.link
+          );
+        });
+        dispatch({
+          status: true,
+          type: ActionTypes.SEARCH_WITH_INGREDIENTS,
+          value: recipes
+        });
+      })
+      .catch(() =>
+        dispatch({
+          status: false,
+          type: ActionTypes.SEARCH_WITH_INGREDIENTS
+        })
+      );
 };
