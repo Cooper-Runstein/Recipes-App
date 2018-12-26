@@ -10,7 +10,7 @@ import {
   entryFunc,
   // searchFunc,
   submitFunc
-} from "./searchActions";
+} from "../../../../service/redux/searchActions";
 
 export type SearchBarProps = {
   color: string;
