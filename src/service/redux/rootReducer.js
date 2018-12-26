@@ -2,7 +2,7 @@
  src/reducers/rootReducer.js
 */
 import { combineReducers } from "redux";
-import simpleReducer from "./simpleReducer";
+import searchReducer from "App/components/SearchBar/container/searchReducer";
 export default combineReducers({
-  simpleReducer
+  searchReducer
 });

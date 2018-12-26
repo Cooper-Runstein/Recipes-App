@@ -1,33 +1,23 @@
-/*
- src/reducers/simpleReducer.js
-*/
-
-export enum types {
-  SEARCH_WITH_INGREDIENTS,
-  UPDATE_ENTRY,
-  SUBMIT_INGREDIENT
-}
+import { ActionTypes } from "./searchActions";
 
 export default (state = { ingredients: [], entry: "" }, action: any) => {
   switch (action.type) {
-    case types.UPDATE_ENTRY:
+    case ActionTypes.UPDATE_ENTRY:
       return {
         ...state,
         entry: action.value
       };
-    case types.SEARCH_WITH_INGREDIENTS:
+    case ActionTypes.SEARCH_WITH_INGREDIENTS:
       return {
         ...state,
         recipes: action.value
       };
-    case types.SUBMIT_INGREDIENT:
-      const obj = {
+    case ActionTypes.SUBMIT_INGREDIENT:
+      return {
         ...state,
         entry: "",
         ingredients: [...state.ingredients, state.entry]
       };
-      console.log(obj);
-      return obj;
     default:
       return state;
   }

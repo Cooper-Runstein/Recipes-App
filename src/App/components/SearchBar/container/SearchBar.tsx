@@ -4,13 +4,13 @@ import styles from "./SearchBar.module.scss";
 
 import { connect } from "react-redux";
 
-import InputBox from "./InputBox";
+import InputBox from "../components/InputBox";
 
 import {
   entryFunc,
   // searchFunc,
   submitFunc
-} from "../../../service/actions/simpleAction";
+} from "./searchActions";
 
 export type SearchBarProps = {
   color: string;
@@ -38,9 +38,7 @@ class SearchBar extends React.Component<SearchBarProps> {
 }
 
 const mapStateToProps = (state: any) => {
-  console.log("MAP");
-  console.log(state);
-  return { entry: state.simpleReducer.entry };
+  return { entry: state.searchReducer.entry };
 };
 
 export default connect(mapStateToProps)(SearchBar);
