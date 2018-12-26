@@ -4,7 +4,8 @@ import Recipe from "service/models/recipe";
 export enum ActionTypes {
   UPDATE_ENTRY,
   SUBMIT_INGREDIENT,
-  SEARCH_WITH_INGREDIENTS
+  SEARCH_WITH_INGREDIENTS,
+  RESET_STATUS
 }
 
 export const entryFunc = (value: string) => {
@@ -42,4 +43,10 @@ export const searchFunc = (ingredients: string[]) => {
           type: ActionTypes.SEARCH_WITH_INGREDIENTS
         })
       );
+};
+
+export const normalizeStatus = () => {
+  return (dispatch: any) => {
+    dispatch({ type: ActionTypes.RESET_STATUS });
+  };
 };

@@ -2,7 +2,7 @@
 import * as React from "react";
 import { connect } from "react-redux";
 
-import { searchFunc } from "../service/redux/searchActions";
+import { normalizeStatus, searchFunc } from "../service/redux/searchActions";
 
 // Components
 import Header from "./components/Header";
@@ -19,6 +19,7 @@ const App = (props: any) => {
       <Header />
       <SearchBar color={"blue"} />
       <RecipesResults
+        normalizeStatus={() => props.dispatch(normalizeStatus())}
         recipes={props.recipes}
         isUpdating={props.isUpdating}
         status={props.status}

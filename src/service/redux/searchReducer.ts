@@ -27,8 +27,15 @@ export default (
       return {
         ...state,
         isUpdating: false,
-        recipes: action.value,
+        recipes: action.value || state.recipes,
         status: action.status
+      };
+    case ActionTypes.RESET_STATUS:
+      return {
+        ...state,
+        ingredients: state.ingredients.slice(0, state.ingredients.length - 1),
+        isUpdating: false,
+        status: true
       };
     default:
       return state;
