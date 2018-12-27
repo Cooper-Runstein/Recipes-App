@@ -15,24 +15,11 @@ type PropType = {
 
 const RecipesList = ({ recipes, loading }: PropType) => {
   return (
-    <>
-      <div className={styles.container}>
-        {recipes.map((recipe, index) => {
-          return (
-            <Recipe recipe={recipe as any} key={index} loading={loading} />
-          );
-        })}
-      </div>
-
-      {/* {loading && (
-        <MoonLoader
-          sizeUnit={"px"}
-          size={75}
-          color={"#123abc"}
-          loading={true}
-        />
-      )} */}
-    </>
+    <div className={styles.container}>
+      {recipes.map((recipe, index) => {
+        return <Recipe recipe={recipe as any} key={index} loading={loading} />;
+      })}
+    </div>
   );
 };
 
