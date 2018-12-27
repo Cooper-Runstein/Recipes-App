@@ -12,6 +12,7 @@ type RecipesResultsProps = {
   isUpdating: boolean;
   status: boolean;
   normalizeStatus: () => void;
+  loading: boolean;
 };
 
 class RecipesResults extends React.PureComponent<RecipesResultsProps> {
@@ -23,8 +24,11 @@ class RecipesResults extends React.PureComponent<RecipesResultsProps> {
     return (
       <div className={styles.container}>
         <h1>Recipes</h1>
-        {this.props.status && this.props.recipes.length > 0 && (
-          <RecipesList recipes={this.props.recipes} />
+        {this.props.status && (
+          <RecipesList
+            recipes={this.props.recipes}
+            loading={this.props.loading}
+          />
         )}
 
         {!this.props.status && (

@@ -1,22 +1,54 @@
 import * as React from "react";
 import IngredientsList from "../IngredientsList";
 
-import RecipeType from "service/models/recipe";
+import Card from "../../../common/Card";
+
+import { MoonLoader } from "react-spinners";
+
+type RecipeType = {
+  name: string;
+  ingredients: string[];
+  website: string;
+  link: string;
+};
 
 type PropTypes = {
   recipe: RecipeType;
+  loading: boolean;
 };
 
-const Recipe = ({ recipe }: PropTypes) => {
+const Recipe = ({ recipe, loading }: PropTypes) => {
   return (
-    <div>
-      <h3>{recipe.name}</h3>
+    <>
+      {!loading && (
+        <Card
+          title={recipe.name}
+          text={<IngredientsList ingredients={recipe.ingredients} />}
+          buttons={[
+            {
+              onClick: () => {
+                window.open(recipe.link, "_blank");
+              },
+              text: recipe.website
+            }
+          ]}
+        />
+      )}
 
-      <IngredientsList ingredients={recipe.ingredients} />
-
-      <h4>{recipe.website}</h4>
-      <h4>{recipe.link}</h4>
-    </div>
+      {loading && (
+        <Card
+          title={""}
+          text={
+            <MoonLoader
+              sizeUnit={"px"}
+              size={75}
+              color={"#123abc"}
+              loading={true}
+            />
+          }
+        />
+      )}
+    </>
   );
 };
 

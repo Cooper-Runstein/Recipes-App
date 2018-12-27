@@ -1,7 +1,10 @@
 .header {
+  font-size: 30px;
   display: flex;
   width: 100vw;
-  height: 20vh;
+  height: 10vh;
   color: white;
-  background: purple;
+  background: #563d7c;
+  justify-content: space-evenly;
+  align-items: center;
 }

@@ -27,7 +27,7 @@ export const searchFunc = (ingredients: string[]) => {
             r.recipeId,
             r.name,
             r.ingredients,
-            r.website,
+            r.sourceWebsite,
             r.link
           );
         });

@@ -4,6 +4,8 @@ import { connect } from "react-redux";
 
 import { normalizeStatus, searchFunc } from "../service/redux/searchActions";
 
+import styles from "./App.module.scss";
+
 // Components
 import Header from "./components/Header";
 import RecipesResults from "./components/RecipesResults/container";
@@ -15,16 +17,19 @@ const App = (props: any) => {
   }
 
   return (
-    <>
+    <div className={styles.container}>
       <Header />
-      <SearchBar color={"blue"} />
-      <RecipesResults
-        normalizeStatus={() => props.dispatch(normalizeStatus())}
-        recipes={props.recipes}
-        isUpdating={props.isUpdating}
-        status={props.status}
-      />
-    </>
+      <div className={styles.body}>
+        <SearchBar color={"blue"} />
+        <RecipesResults
+          normalizeStatus={() => props.dispatch(normalizeStatus())}
+          recipes={props.recipes}
+          isUpdating={props.isUpdating}
+          status={props.status}
+          loading={props.isUpdating}
+        />
+      </div>
+    </div>
   );
 };
 
