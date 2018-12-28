@@ -6,8 +6,6 @@ import Recipe from "../Recipe";
 
 import styles from "./RecipesList.module.scss";
 
-// import { MoonLoader } from "react-spinners";
-
 type PropType = {
   recipes: RecipeType[];
   loading: boolean;

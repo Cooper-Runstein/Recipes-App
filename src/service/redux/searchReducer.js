@@ -3,12 +3,13 @@ import { ActionTypes } from "./searchActions";
 export default (
   state = {
     entry: "",
+    ignoredRecipes: [],
     ingredients: [],
     isUpdating: false,
     recipes: [],
     status: true
   },
-  action: any
+  action
 ) => {
   switch (action.type) {
     case ActionTypes.UPDATE_ENTRY:
@@ -27,7 +28,10 @@ export default (
       return {
         ...state,
         isUpdating: false,
-        recipes: action.value || state.recipes,
+        recipes:
+          action.value.filter(
+            recipe => !state.ignoredRecipes.includes(recipe.id)
+          ) || state.recipes,
         status: action.status
       };
     case ActionTypes.RESET_STATUS:
@@ -42,6 +46,12 @@ export default (
         ...state,
         ingredients: state.ingredients.filter(i => i !== action.value),
         isUpdating: true
+      };
+    case ActionTypes.IGNORE_RECIPE:
+      return {
+        ...state,
+        ignoredRecipes: [...state.ignoredRecipes, action.id],
+        recipes: state.recipes.filter(recipe => recipe.id !== action.id)
       };
     default:
       return state;

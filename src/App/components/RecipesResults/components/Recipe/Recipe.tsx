@@ -1,11 +1,16 @@
 import * as React from "react";
 import IngredientsList from "../IngredientsList";
 
+import { connect } from "react-redux";
+
 import Card from "../../../common/Card";
 
 import { MoonLoader } from "react-spinners";
 
+import { ignoreRecipe } from "service/redux/searchActions";
+
 type RecipeType = {
+  id: any;
   name: string;
   ingredients: string[];
   website: string;
@@ -15,9 +20,10 @@ type RecipeType = {
 type PropTypes = {
   recipe: RecipeType;
   loading: boolean;
+  dispatch: any;
 };
 
-const Recipe = ({ recipe, loading }: PropTypes) => {
+const Recipe = ({ recipe, loading, dispatch }: PropTypes) => {
   return (
     <>
       {!loading && (
@@ -30,6 +36,14 @@ const Recipe = ({ recipe, loading }: PropTypes) => {
                 window.open(recipe.link, "_blank");
               },
               text: recipe.website
+            },
+            {
+              color: "danger",
+              onClick: () => {
+                dispatch(ignoreRecipe(recipe.id));
+                console.log(recipe.id);
+              },
+              text: "Not Interested"
             }
           ]}
         />
@@ -52,4 +66,4 @@ const Recipe = ({ recipe, loading }: PropTypes) => {
   );
 };
 
-export default Recipe;
+export default connect()(Recipe);

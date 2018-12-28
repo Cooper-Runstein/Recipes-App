@@ -6,7 +6,8 @@ export enum ActionTypes {
   SUBMIT_INGREDIENT,
   SEARCH_WITH_INGREDIENTS,
   RESET_STATUS,
-  REMOVE_INGREDIENT
+  REMOVE_INGREDIENT,
+  IGNORE_RECIPE
 }
 
 export const entryFunc = (value: string) => {
@@ -55,5 +56,11 @@ export const normalizeStatus = () => {
 export const removeIngredient = (value: string) => {
   return (dispatch: any) => {
     dispatch({ type: ActionTypes.REMOVE_INGREDIENT, value });
+  };
+};
+
+export const ignoreRecipe = (id: any) => {
+  return (dispatch: any) => {
+    dispatch({ type: ActionTypes.IGNORE_RECIPE, id });
   };
 };

@@ -9,6 +9,8 @@ import {
   CardTitle
 } from "reactstrap";
 
+import styles from "./Card.module.scss";
+
 type CardImage = {
   width: number;
   src: string;
@@ -37,12 +39,15 @@ const Card = ({ img, text, title, subtitle, buttons }: CardProps) => {
         {title && <CardTitle>{title}</CardTitle>}
         {subtitle && <CardSubtitle>{subtitle}</CardSubtitle>}
         <CardText>{text}</CardText>
-        {buttons &&
-          buttons.map((button, index) => (
-            <Button key={index} onClick={button.onClick} color={button.color}>
-              {button.text}
-            </Button>
-          ))}
+        {buttons && (
+          <div className={styles.buttonsContainer}>
+            {buttons.map((button, index) => (
+              <Button key={index} onClick={button.onClick} color={button.color}>
+                {button.text}
+              </Button>
+            ))}
+          </div>
+        )}
       </CardBody>
     </BSCard>
   );
