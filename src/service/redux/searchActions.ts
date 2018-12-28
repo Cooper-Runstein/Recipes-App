@@ -36,7 +36,6 @@ export const searchFunc = (ingredients: string[]) => {
         recipes = recipes.filter(
           (r: any) => !getState().searchReducer.ignoredRecipes.includes(r.id)
         );
-        console.log(recipes);
         dispatch({
           status: true,
           type: ActionTypes.SEARCH_WITH_INGREDIENTS,

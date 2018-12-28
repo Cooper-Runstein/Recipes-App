@@ -21,15 +21,27 @@ type PropTypes = {
   recipe: RecipeType;
   loading: boolean;
   dispatch: any;
+  ingredients: any;
 };
 
-const Recipe = ({ recipe, loading, dispatch }: PropTypes) => {
+const Recipe = ({ recipe, loading, dispatch, ingredients }: PropTypes) => {
+  const numberOfIngredients = recipe.ingredients.filter(i =>
+    ingredients.includes(i)
+  );
   return (
     <>
       {!loading && (
         <Card
           title={recipe.name}
-          text={<IngredientsList ingredients={recipe.ingredients} />}
+          text={
+            <>
+              <IngredientsList ingredients={recipe.ingredients} />
+              <p>
+                Number of ingredients you have: {numberOfIngredients.length} of{" "}
+                {recipe.ingredients.length}
+              </p>
+            </>
+          }
           buttons={[
             {
               onClick: () => {
@@ -65,4 +77,9 @@ const Recipe = ({ recipe, loading, dispatch }: PropTypes) => {
   );
 };
 
-export default connect()(Recipe);
+const mapStateToProps = (state: any) => {
+  return {
+    ingredients: state.searchReducer.ingredients
+  };
+};
+export default connect(mapStateToProps)(Recipe);
