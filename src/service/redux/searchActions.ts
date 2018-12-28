@@ -21,7 +21,7 @@ export const submitFunc = () => {
 };
 
 export const searchFunc = (ingredients: string[]) => {
-  return (dispatch: any) =>
+  return (dispatch: any, getState: any) =>
     getRecipes(ingredients)
       .then(recipes => {
         recipes = recipes.map((r: any) => {
@@ -33,6 +33,10 @@ export const searchFunc = (ingredients: string[]) => {
             r.link
           );
         });
+        recipes = recipes.filter(
+          (r: any) => !getState().searchReducer.ignoredRecipes.includes(r.id)
+        );
+        console.log(recipes);
         dispatch({
           status: true,
           type: ActionTypes.SEARCH_WITH_INGREDIENTS,

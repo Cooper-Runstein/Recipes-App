@@ -41,7 +41,6 @@ const Recipe = ({ recipe, loading, dispatch }: PropTypes) => {
               color: "danger",
               onClick: () => {
                 dispatch(ignoreRecipe(recipe.id));
-                console.log(recipe.id);
               },
               text: "Not Interested"
             }

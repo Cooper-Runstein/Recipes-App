@@ -28,10 +28,7 @@ export default (
       return {
         ...state,
         isUpdating: false,
-        recipes:
-          action.value.filter(
-            recipe => !state.ignoredRecipes.includes(recipe.id)
-          ) || state.recipes,
+        recipes: action.value || state.recipes,
         status: action.status
       };
     case ActionTypes.RESET_STATUS:
