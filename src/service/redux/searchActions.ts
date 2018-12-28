@@ -5,7 +5,8 @@ export enum ActionTypes {
   UPDATE_ENTRY,
   SUBMIT_INGREDIENT,
   SEARCH_WITH_INGREDIENTS,
-  RESET_STATUS
+  RESET_STATUS,
+  REMOVE_INGREDIENT
 }
 
 export const entryFunc = (value: string) => {
@@ -48,5 +49,11 @@ export const searchFunc = (ingredients: string[]) => {
 export const normalizeStatus = () => {
   return (dispatch: any) => {
     dispatch({ type: ActionTypes.RESET_STATUS });
+  };
+};
+
+export const removeIngredient = (value: string) => {
+  return (dispatch: any) => {
+    dispatch({ type: ActionTypes.REMOVE_INGREDIENT, value });
   };
 };

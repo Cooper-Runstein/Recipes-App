@@ -7,14 +7,18 @@
 }
 
 .header {
-  color: #0a8;
+  color: #f9f9f9;
 }
 
 .container {
   display: flex;
   flex-direction: column;
-  width: 30vw;
-  padding-left: 5vw;
-  padding-right: 5vw;
+  width: 25vw;
+  height: 100vh;
+  padding-left: 64px;
+  padding-right: 64px;
+  padding-top: 16px;
   position: fixed;
+  background-color: #563d7c;
+  top: 0;
 }

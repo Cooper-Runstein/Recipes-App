@@ -19,7 +19,7 @@ const InputBox: React.SFC<InputBoxType> = ({ onChange, onClick, entry }) => {
         onChange={e => onChange(e.target.value)}
       />
       <BSButton onClick={onClick} color="primary">
-        Click me!
+        Add
       </BSButton>
     </div>
   );

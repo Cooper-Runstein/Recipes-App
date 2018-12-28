@@ -23,7 +23,12 @@ class RecipesResults extends React.PureComponent<RecipesResultsProps> {
   public render() {
     return (
       <div className={styles.container}>
-        <h1>Recipes</h1>
+        <div className={styles.header}>
+          <h1>Recipes</h1>
+          {this.props.recipes.length > 0 && (
+            <h3>Results: {this.props.recipes.length}</h3>
+          )}
+        </div>
         {this.props.status && (
           <RecipesList
             recipes={this.props.recipes}

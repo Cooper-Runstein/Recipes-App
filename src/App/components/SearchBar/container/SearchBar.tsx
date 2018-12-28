@@ -8,7 +8,7 @@ import InputBox from "../components/InputBox";
 
 import {
   entryFunc,
-  // searchFunc,
+  removeIngredient,
   submitFunc
 } from "../../../../service/redux/searchActions";
 import IngredientsDisplay from "../components/IngredientsDisplay/index";
@@ -28,13 +28,18 @@ class SearchBar extends React.Component<SearchBarProps> {
   public render() {
     return (
       <div className={styles.container}>
-        <h1 className={styles.header}>Search For an Ingredient</h1>
+        <h1 className={styles.header}>Ingredients</h1>
         <InputBox
           onChange={(e: string) => this.props.dispatch(entryFunc(e))}
           onClick={() => this.props.dispatch(submitFunc())}
           entry={this.props.entry}
         />
-        <IngredientsDisplay ingredients={this.props.ingredients} />
+        <IngredientsDisplay
+          ingredients={this.props.ingredients}
+          removeFunction={(i: string) =>
+            this.props.dispatch(removeIngredient(i))
+          }
+        />
       </div>
     );
   }

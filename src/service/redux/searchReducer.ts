@@ -37,6 +37,12 @@ export default (
         isUpdating: false,
         status: true
       };
+    case ActionTypes.REMOVE_INGREDIENT:
+      return {
+        ...state,
+        ingredients: state.ingredients.filter(i => i !== action.value),
+        isUpdating: true
+      };
     default:
       return state;
   }

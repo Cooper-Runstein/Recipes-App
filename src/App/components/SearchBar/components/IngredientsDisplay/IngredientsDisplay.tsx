@@ -6,9 +6,13 @@ import styles from "./IngredientsDisplay.module.scss";
 
 type IngredientsDisplayProps = {
   ingredients: string[];
+  removeFunction: (i: string) => any;
 };
 
-const IngredientsDisplay = ({ ingredients }: IngredientsDisplayProps) => {
+const IngredientsDisplay = ({
+  ingredients,
+  removeFunction
+}: IngredientsDisplayProps) => {
   return (
     <div className={styles.container}>
       {ingredients.map((ingredient, index) => (
@@ -18,7 +22,7 @@ const IngredientsDisplay = ({ ingredients }: IngredientsDisplayProps) => {
           buttons={[
             {
               color: "danger",
-              onClick: () => null,
+              onClick: () => removeFunction(ingredient),
               text: "remove"
             }
           ]}
