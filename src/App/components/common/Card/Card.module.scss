@@ -2,3 +2,13 @@
   display: flex;
   justify-content: space-between;
 }
+
+.default {
+}
+
+.singleRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 8px;
+}

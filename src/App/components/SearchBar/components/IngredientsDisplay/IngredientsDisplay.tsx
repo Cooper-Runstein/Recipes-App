@@ -1,6 +1,6 @@
 import * as React from "react";
 
-import Card from "App/components/common/Card";
+import Card, { ClassLayout } from "App/components/common/Card";
 
 import styles from "./IngredientsDisplay.module.scss";
 
@@ -17,6 +17,7 @@ const IngredientsDisplay = ({
     <div className={styles.container}>
       {ingredients.map((ingredient, index) => (
         <Card
+          classLayout={ClassLayout.SINGLE_ROW}
           key={index}
           text={ingredient}
           buttons={[

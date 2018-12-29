@@ -2,14 +2,17 @@ import * as React from "react";
 import {
   Button,
   Card as BSCard,
-  CardBody,
   CardImg,
   CardSubtitle,
-  CardText,
   CardTitle
 } from "reactstrap";
 
 import styles from "./Card.module.scss";
+
+export enum ClassLayout {
+  SINGLE_ROW = "singleRow",
+  DEFAULT = "default"
+}
 
 type CardImage = {
   width: number;
@@ -24,6 +27,7 @@ type ButtonType = {
 };
 
 type CardProps = {
+  classLayout?: ClassLayout;
   img?: CardImage;
   text: React.ReactNode;
   title?: string;
@@ -31,14 +35,21 @@ type CardProps = {
   buttons?: ButtonType[];
 };
 
-const Card = ({ img, text, title, subtitle, buttons }: CardProps) => {
+const Card = ({
+  img,
+  text,
+  title,
+  subtitle,
+  buttons,
+  classLayout = ClassLayout.DEFAULT
+}: CardProps) => {
   return (
     <BSCard className="Card">
       {img && <CardImg width={`${img.width}%`} src={img.src} alt={img.alt} />}
-      <CardBody>
+      <div className={styles[classLayout]}>
         {title && <CardTitle>{title}</CardTitle>}
         {subtitle && <CardSubtitle>{subtitle}</CardSubtitle>}
-        <CardText>{text}</CardText>
+        <div>{text}</div>
         {buttons && (
           <div className={styles.buttonsContainer}>
             {buttons.map((button, index) => (
@@ -48,7 +59,7 @@ const Card = ({ img, text, title, subtitle, buttons }: CardProps) => {
             ))}
           </div>
         )}
-      </CardBody>
+      </div>
     </BSCard>
   );
 };
