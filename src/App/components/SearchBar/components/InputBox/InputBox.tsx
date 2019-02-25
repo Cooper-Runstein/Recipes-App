@@ -16,6 +16,7 @@ const InputBox: React.SFC<InputBoxType> = ({ onChange, onClick, entry }) => {
       <input
         type="text"
         value={entry}
+        placeholder={"new ingredient"}
         onChange={e => onChange(e.target.value)}
       />
       <BSButton onClick={onClick} color="primary">

@@ -1,11 +1,5 @@
 import * as React from "react";
-import {
-  Button,
-  Card as BSCard,
-  CardImg,
-  CardSubtitle,
-  CardTitle
-} from "reactstrap";
+import { Button, Card as BSCard, CardImg } from "reactstrap";
 
 import styles from "./Card.module.scss";
 
@@ -47,8 +41,8 @@ const Card = ({
     <BSCard className="Card">
       {img && <CardImg width={`${img.width}%`} src={img.src} alt={img.alt} />}
       <div className={styles[classLayout]}>
-        {title && <CardTitle>{title}</CardTitle>}
-        {subtitle && <CardSubtitle>{subtitle}</CardSubtitle>}
+        {title && <h3>{title}</h3>}
+        {subtitle && <h4>{subtitle}</h4>}
         <div>{text}</div>
         {buttons && (
           <div className={styles.buttonsContainer}>

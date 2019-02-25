@@ -7,7 +7,9 @@ export enum ActionTypes {
   SEARCH_WITH_INGREDIENTS,
   RESET_STATUS,
   REMOVE_INGREDIENT,
-  IGNORE_RECIPE
+  IGNORE_RECIPE,
+  CHANGE_VEG,
+  ACTIVATE_SETTINGS
 }
 
 export const entryFunc = (value: string) => {
@@ -65,5 +67,18 @@ export const removeIngredient = (value: string) => {
 export const ignoreRecipe = (id: any) => {
   return (dispatch: any) => {
     dispatch({ type: ActionTypes.IGNORE_RECIPE, id });
+  };
+};
+
+export const changeVeg = (val: string) => {
+  console.log(val);
+  return (dispatch: any) => {
+    dispatch({ type: ActionTypes.CHANGE_VEG, value: val });
+  };
+};
+
+export const activateSettings = () => {
+  return (dispatch: any) => {
+    dispatch({ type: ActionTypes.ACTIVATE_SETTINGS });
   };
 };

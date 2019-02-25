@@ -1,5 +1,7 @@
 import { ActionTypes } from "./searchActions";
 
+import { RecipeType } from "../models/recipe";
+
 export default (
   state = {
     entry: "",
@@ -7,9 +9,11 @@ export default (
     ingredients: [],
     isUpdating: false,
     recipes: [],
-    status: true
+    settingsActive: false,
+    status: true,
+    veg: "none"
   },
-  action
+  action: any
 ) => {
   switch (action.type) {
     case ActionTypes.UPDATE_ENTRY:
@@ -48,7 +52,20 @@ export default (
       return {
         ...state,
         ignoredRecipes: [...state.ignoredRecipes, action.id],
-        recipes: state.recipes.filter(recipe => recipe.id !== action.id)
+        recipes: state.recipes.filter(
+          (recipe: RecipeType) => recipe.id !== action.id
+        )
+      };
+    case ActionTypes.CHANGE_VEG:
+      return {
+        ...state,
+        isUpdating: action.val !== state.veg && state.ingredients.length > 0,
+        veg: state.veg === action.value ? "none" : action.value
+      };
+    case ActionTypes.ACTIVATE_SETTINGS:
+      return {
+        ...state,
+        settingsActive: !state.settingsActive
       };
     default:
       return state;

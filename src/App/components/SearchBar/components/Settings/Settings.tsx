@@ -2,60 +2,52 @@ import * as React from "react";
 
 import Icon, { IconType } from "App/components/common/Icon";
 
+import { Veg } from "typings/globalEnums";
+
 import styles from "./Settings.module.scss";
 
-type SettingsState = {
-  active: boolean;
-  vegan: boolean;
-  vegetarian: boolean;
+type SettingsProps = {
+  onSettingsChange: (val: any) => void;
+  settingsActive: boolean;
+  veg: Veg;
+  activate: (e: string) => void;
 };
-type SettingsProps = {};
 
-class Settings extends React.Component<SettingsProps, SettingsState> {
-  public state = {
-    active: false,
-    vegan: false,
-    vegetarian: false
-  };
-
-  public activate = (value: string) => {
-    this.setState({
-      ...this.state,
-      [value]: !this.state[value]
-    });
-  };
-
-  public render() {
-    return (
-      <div className={styles.container}>
-        <span onClick={() => this.activate("active")}>
-          <Icon iconType={IconType.SETTINGS} color={"white"} />
-        </span>
-        {this.state.active && (
-          <div className={styles.boxes}>
-            <span>
-              <input
-                type="checkbox"
-                name="gender"
-                checked={this.state.vegan}
-                onChange={() => this.activate("vegan")}
-              />{" "}
-              Vegan
-            </span>
-            <span>
-              <input
-                type="checkbox"
-                name="gender"
-                checked={this.state.vegetarian || this.state.vegan}
-                onChange={() => this.activate("vegetarian")}
-              />{" "}
-              Vegetarian
-            </span>
-          </div>
-        )}
-      </div>
-    );
-  }
-}
+const Settings = ({
+  settingsActive,
+  activate,
+  veg,
+  onSettingsChange
+}: SettingsProps) => {
+  return (
+    <div className={styles.container}>
+      <span onClick={() => activate("active")} className={styles.iconWrapper}>
+        <Icon iconType={IconType.SETTINGS} color={"white"} />
+      </span>
+      {settingsActive && (
+        <div className={styles.boxes}>
+          <span>
+            <input
+              type="checkbox"
+              name={Veg.VEGAN}
+              checked={veg === Veg.VEGAN}
+              onChange={() => onSettingsChange(Veg.VEGAN)}
+            />{" "}
+            Vegan
+          </span>
+          <span>
+            <input
+              type="checkbox"
+              name={Veg.VEGETARIAN}
+              checked={veg === Veg.VEGETARIAN || veg === Veg.VEGAN}
+              onChange={() => onSettingsChange(Veg.VEGETARIAN)}
+            />{" "}
+            Vegetarian
+          </span>
+        </div>
+      )}
+    </div>
+  );
+};
 
 export default Settings;
