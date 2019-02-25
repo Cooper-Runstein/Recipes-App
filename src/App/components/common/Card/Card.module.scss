@@ -1,0 +1,15 @@
+.buttonsContainer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.default {
+  padding: 8px;
+}
+
+.singleRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 8px;
+}

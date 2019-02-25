@@ -1,0 +1,25 @@
+.red {
+  color: red;
+}
+
+.blue {
+  color: blue;
+}
+
+.header {
+  color: #f9f9f9;
+  margin-bottom: 8px;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 25vw;
+  height: 100vh;
+  padding-left: 64px;
+  padding-right: 64px;
+  padding-top: 16px;
+  position: fixed;
+  background-color: #563d7c;
+  top: 0;
+}

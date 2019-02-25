@@ -1,0 +1,16 @@
+@import "../../../../../assets/scss/globals";
+
+.container {
+  padding-bottom: 8px;
+}
+
+.boxes {
+  span {
+    padding-right: 4px;
+    color: $white;
+  }
+}
+
+.iconWrapper:hover {
+  cursor: pointer;
+}

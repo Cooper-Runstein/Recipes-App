@@ -1,0 +1,30 @@
+.container {
+  width: 100%;
+  min-height: 200vh;
+  background: #f9f9f9;
+  margin-left: 25vw;
+  padding-left: 10vw;
+  padding-right: 10vw;
+  padding-top: 16px;
+  color: #563d7c;
+
+  ul {
+    list-style: none;
+  }
+
+  h1 {
+    margin-right: 32px;
+  }
+}
+
+.header {
+  display: flex;
+  align-items: baseline;
+}
+
+.recipe {
+  display: inline-flex;
+  flex-direction: column;
+  width: 15vw;
+  margin-right: 10px;
+}

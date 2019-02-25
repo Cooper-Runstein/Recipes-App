@@ -6,5 +6,12 @@
       "node_modules/**/*.ts",
       "coverage/lcov-report/*.js"
     ]
+  },
+  "rules": {
+    "no-console": false,
+    "interface-over-type-literal": false,
+    "jsx-no-lambda": false,
+    "no-angle-bracket-type-assertion": false,
+    "no-shadowed-variable": true
   }
 }
